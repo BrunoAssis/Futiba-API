@@ -1,3 +1,4 @@
-== Futiba-API
+Futiba-API
+==========
 
-Just testing.
+API para o Futiba.
