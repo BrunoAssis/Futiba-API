@@ -1,4 +1,8 @@
 FutibaApi::Application.routes.draw do
+  resources :matches
+
+  resources :teams
+
   root 'static_pages#index'
 
   devise_for :users
