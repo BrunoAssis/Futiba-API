@@ -1,10 +1,10 @@
-require 'faker'
-
 FactoryGirl.define do
+  sequence(:name) {|n| "Name #{n}"}
+
   factory :team do
-    name Faker::Name.name
+    name
     coat_of_arms "MyString.jpg"
     money 1000
-    association :user
+    user
   end
 end

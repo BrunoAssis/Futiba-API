@@ -3,7 +3,7 @@ ruby '2.0.0'
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -54,7 +54,6 @@ group :development, :test do
 end
 
 group :test do
-	gem 'faker'
 	gem 'capybara'
 	gem 'guard-rspec'
 	gem 'launchy'

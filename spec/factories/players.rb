@@ -8,6 +8,6 @@ FactoryGirl.define do
     offense Random.rand(0..10)
     defense Random.rand(0..10)
     stamina Random.rand(0..10)
-    association :real_team
+    real_team
   end
 end
