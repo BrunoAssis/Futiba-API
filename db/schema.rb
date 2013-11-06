@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105013452) do
+ActiveRecord::Schema.define(version: 20131106135329) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "contracts", force: true do |t|
     t.integer  "player_id"
@@ -32,6 +35,13 @@ ActiveRecord::Schema.define(version: 20131105013452) do
     t.datetime "updated_at"
   end
 
+  create_table "play_types", force: true do |t|
+    t.string   "description"
+    t.boolean  "scorable",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "players", force: true do |t|
     t.string   "name"
     t.string   "number"
@@ -45,6 +55,19 @@ ActiveRecord::Schema.define(version: 20131105013452) do
   end
 
   add_index "players", ["real_team_id"], name: "index_players_on_real_team_id", using: :btree
+
+  create_table "plays", force: true do |t|
+    t.integer  "match_id"
+    t.string   "period"
+    t.integer  "minute"
+    t.integer  "play_type_id"
+    t.string   "involved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "plays", ["match_id"], name: "index_plays_on_match_id", using: :btree
+  add_index "plays", ["play_type_id"], name: "index_plays_on_play_type_id", using: :btree
 
   create_table "real_teams", force: true do |t|
     t.string   "name"
